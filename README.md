@@ -89,10 +89,39 @@ csgViewer({}, {solids: csg})
 csgViewer({controls: {autoRotate: {enabled: true}}})
 
 ```
+### Browserify
 When using `browserify` make sure to add the right flags, '-g' for global transform, else the shader code won't be transformed.
 ```
 browserify src/example.js -g brfs -g glslify > dist/bundle.js
 ```
+sample `index.html`
+```
+<!DOCTYPE html>
+<html>
+<head>
+<title>Example</title>
+</head>
+<body>
+<div>
+Example:
+</div>
+<canvas id="myviewer" style="left: 0px; width: 800px; height: 600px;" width="800" height="600"> haha
+</canvas>
+<script src="bundle.js"></script>
+</body>
+</html>     
+```
+*Assuming `bundle.js` and `index.html` are located in the same folder*
+
+Make sure the csg-viewer is attached to the canvas.
+
+```
+const mycanvas = document.getElementById("myviewer")
+const {csgViewer, viewerDefaults, viewerState$} = makeViewer(document.body, viewerOptions)
+```
+
+
+### Budo
 When using `budo` use the same flags:
 ```
 budo src/example.js --css src/example.css --live -- -g brfs -g glslify
