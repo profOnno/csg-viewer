@@ -111,13 +111,13 @@ Example:
 </body>
 </html>     
 ```
-*Assuming `bundle.js` and `index.html` are located in the same folder*
+*Assuming `bundle.js` and `index.html` are located in the same folder.*
 
 Make sure the csg-viewer is attached to the canvas.
 
 ```
 const mycanvas = document.getElementById("myviewer")
-const {csgViewer, viewerDefaults, viewerState$} = makeViewer(document.body, viewerOptions)
+const {csgViewer, viewerDefaults, viewerState$} = makeViewer(mycanvas, viewerOptions)
 ```
 
 
